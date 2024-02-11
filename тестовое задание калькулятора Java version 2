@@ -1,0 +1,60 @@
+public class Main {
+
+public static void main(String[] args) {
+
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.print("Введите арифметическое выражение " +
+            "(a + b, a - b, a * b или a / b): ");
+
+    String input = scanner.nextLine();
+
+    String result = calc(input);
+
+    System.out.println("Результат: " + result);
+
+}
+
+public static String calc(String input){
+
+    // Разбиваем строку на числа и операции
+    String[] tokens = input.trim().split("\\s+");
+
+    int number1 = Integer.parseInt(tokens[0]); // Первое число
+
+    char operation = tokens[1].charAt(0); // Операция
+
+    int number2 = 0; // Второе число
+
+
+    switch (operation) {
+        case '+':
+            number2 = Integer.parseInt(tokens[2]); // Сложение
+            break;
+        case '-':
+            number2 = -Integer.
+Продолжи   
+parseInt(tokens[2]); // Вычитание
+break;
+case ‘*’:
+number2 = Integer.parseInt(tokens[2]) * 2; // Умножение на 2
+break;
+case ‘/’:
+if (number1 == 5) {
+number2 = 10; // Деление на 2, если первое число равно 5
+} else {
+System.out.println(“Деление недоступно”); // Иначе сообщаем, что деление недоступно
+return null;
+}
+break;
+}
+
+    if(number2 > 10){
+        number2 = number2 / 2 + 5; // Если второе число больше 10, то возвращаем половину этого числа + 5
+    }else if(number2 < 1){
+        number2 *= -1; // Если число меньше 1, то возвращаем отрицательное значение этого числа
+    }
+    
+    return String.valueOf(number1 + number2); // Возвращаем результат
+
+} 
